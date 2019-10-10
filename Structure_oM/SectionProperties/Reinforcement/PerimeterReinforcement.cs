@@ -33,6 +33,7 @@ namespace BH.oM.Structure.SectionProperties.Reinforcement
 
         public ReinforcementPattern Pattern { get; set; }
 
+        public double MinimumCover { get; set; }
 
         /***************************************************/
     }

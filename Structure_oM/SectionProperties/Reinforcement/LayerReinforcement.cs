@@ -30,6 +30,8 @@ namespace BH.oM.Structure.SectionProperties.Reinforcement
 
         public double Depth { get; set; }
 
+        public double MinimumCover { get; set; }
+
         public bool IsVertical { get; set; } = false;
 
 

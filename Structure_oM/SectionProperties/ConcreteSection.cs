@@ -39,8 +39,6 @@ namespace BH.oM.Structure.SectionProperties
 
         public List<Reinforcement.Reinforcement> Reinforcement { get; set; }
 
-        public double MinimumCover { get; }  //TODO: Do we need this property or should it be a BHoM_Engine query?
-
         public IMaterialFragment Material { get; set; }
 
 
