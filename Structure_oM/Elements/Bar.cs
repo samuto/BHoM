@@ -22,6 +22,7 @@
 
 using System.ComponentModel;
 using BH.oM.Base;
+using BH.oM.Dimensional;
 using BH.oM.Geometry;
 using BH.oM.Structure.SectionProperties;
 using BH.oM.Structure.Constraints;
