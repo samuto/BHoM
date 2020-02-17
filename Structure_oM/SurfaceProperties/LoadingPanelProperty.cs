@@ -21,25 +21,26 @@
  */
 
 using BH.oM.Base;
-using System;
-using System.Collections.Generic;
+using BH.oM.Structure.MaterialFragments;
+using System.ComponentModel;
 
-namespace BH.oM.Structure.Loads
+namespace BH.oM.Structure.SurfaceProperties
 {
-    /// <summary>
-    /// Loadcombination, different to loadcase as combination also contains information
-    /// on the combinations of loads with load factors
-    /// </summary>
-    public class LoadCombination : BHoMObject, ICase
+    [Description("Property for 2D analytical elements used to distribute load, without any structural stiffness.")]
+    public class LoadingPanelProperty : BHoMObject, ISurfaceProperty
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<Tuple<double, ICase>> LoadCases { get; set; } = new List<Tuple<double, ICase>>();
+        [Description("Load application enum defining to which edges the load should be distributed.")]
+        public LoadPanelSupportConditions LoadApplication { get; set; } = LoadPanelSupportConditions.AllSides;
 
-        public int Number { get; set; } = 0;
+        [Description("Used to define the direction of the load for when LoadApplication is not AllSides.")]
+        public int ReferenceEdge { get; set; } = 1;
 
+        [Description("Material of the property, redundant for most structural applications.")]
+        public IMaterialFragment Material { get; set; }
 
         /***************************************************/
     }

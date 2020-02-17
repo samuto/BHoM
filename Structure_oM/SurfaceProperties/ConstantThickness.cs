@@ -22,21 +22,27 @@
 
 using BH.oM.Base;
 using BH.oM.Structure.MaterialFragments;
-
+using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.SurfaceProperties
 {
+    [Description("Simplest property for 2D analytical elements with a constant thickness and homogenous material across the whole element.")]
     public class ConstantThickness : BHoMObject, ISurfaceProperty
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Length]
+        [Description("Defines the distance the element should be extruded along its normal. By default the element will be extruded half the thickness 'upwards' and half the thickness 'downwards' meaning the element base geoemtry will be in the centre of the extrusion.")]
         public double Thickness { get; set; }
 
+        [Description("Homogenous structural material throughout the full thickness of the element.")]
         public IMaterialFragment Material { get; set; }
 
-        public PanelType PanelType { get; set; } = PanelType.Slab;  //TODO: Required to get Etabs working. To be moved to physical objects
+        [Description("Defines what type of element this property will be used. Used by some analysis packages.")]
+        public PanelType PanelType { get; set; } = PanelType.Slab;   //TODO: Required to get Etabs working. To be moved to physical objects
 
         /***************************************************/
     }

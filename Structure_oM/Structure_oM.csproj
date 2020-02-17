@@ -82,7 +82,7 @@
     <Compile Include="Loads\Load.cs" />
     <Compile Include="Loads\ContourLoad.cs" />
     <Compile Include="Loads\Loadcase.cs" />
-    <Compile Include="Loads\Loadcombination.cs" />
+    <Compile Include="Loads\LoadCombination.cs" />
     <Compile Include="Loads\PointAcceleration.cs" />
     <Compile Include="Loads\PointDisplacement.cs" />
     <Compile Include="Loads\PointLoad.cs" />
@@ -128,11 +128,11 @@
     <Compile Include="FramingProperties\ConstantFramingElementProperty.cs" />
     <Compile Include="FramingProperties\IFramingElementProperty.cs" />
     <Compile Include="Offsets\Offset.cs" />
-    <Compile Include="SurfaceProperties\ConcreteRibbed.cs" />
-    <Compile Include="SurfaceProperties\ConcreteWaffle.cs" />
+    <Compile Include="SurfaceProperties\Ribbed.cs" />
+    <Compile Include="SurfaceProperties\Waffle.cs" />
     <Compile Include="SurfaceProperties\ConstantThickness.cs" />
     <Compile Include="SurfaceProperties\ISurfaceProperty.cs" />
-    <Compile Include="SurfaceProperties\LoadingPanel.cs" />
+    <Compile Include="SurfaceProperties\LoadingPanelProperty.cs" />
     <Compile Include="SectionProperties\CableSection.cs" />
     <Compile Include="SectionProperties\CompositeSection.cs" />
     <Compile Include="SectionProperties\ConcreteSection.cs" />
@@ -156,9 +156,6 @@
     <Compile Include="Results\Mesh\Enums\MeshResultLayer.cs" />
     <Compile Include="Results\Mesh\Enums\MeshResultSmoothingType.cs" />
     <Compile Include="Results\Mesh\Enums\MeshResultType.cs" />
-    <Compile Include="Results\Mesh\Legacy\MeshForces.cs" />
-    <Compile Include="Results\Mesh\Legacy\MeshNodeResult.cs" />
-    <Compile Include="Results\Mesh\Legacy\MeshStresses.cs" />
     <Compile Include="Results\Mesh\MeshDisplacement.cs" />
     <Compile Include="Results\Mesh\MeshForce.cs" />
     <Compile Include="Results\Mesh\MeshElementResult.cs" />

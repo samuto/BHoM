@@ -20,6 +20,7 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+
 using System.ComponentModel;
 using BH.oM.Base;
 using BH.oM.Dimensional;
@@ -28,6 +29,7 @@ using BH.oM.Structure.SectionProperties;
 using BH.oM.Structure.Constraints;
 using BH.oM.Structure.Offsets;
 using BH.oM.Analytical.Elements;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Elements
 {
@@ -40,29 +42,29 @@ namespace BH.oM.Structure.Elements
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Start node of the bar. Defines the start position of the element. \nNote that Nodes can contain Supports, not to be mixed up with releases.")]
+        [Description("Defines the start position of the element. Note that Nodes can contain Supports which should not be confused with Releases.")]
         public Node StartNode { get; set; }
 
-        [Description("End node of the bar. Defines the end position of the element. \nNote that Nodes can contain Supports, not to be mixed up with releases.")]
+        [Description("Defines the end position of the element. Note that Nodes can contain Supports which should not be confused with Releases.")]
         public Node EndNode { get; set; }
 
         [Description("Section property of the bar, containing all sectional constants and material as well as profile geometry and dimensions, where applicable.")]
         public ISectionProperty SectionProperty { get; set; } = null;
 
-        [Description("Bar orientation angle in radians \n" +
-                     "For non-vertical members the local z is aligned with the global z and rotated with the orientation angle around the local x. \n" +
-                     "For vertical members the local y is aligned with the global y and rotated with the orientation angle around the local x. \n"+
+        [Angle]
+        [Description("Controls the local axis orientation of the bar \n" +
+                     "For non-vertical members the local z is aligned with the global Z and rotated with the orientation angle about the local x. \n" +
+                     "For vertical members the local y is aligned with the global Y and rotated with the orientation angle about the local x. \n"+
                      "A bar is vertical if its projected length to the horizontal plane is less than 0.0001, i.e. a tolerance of 0.1mm on verticality. \n" +
                      "For general structural conventions please see  https://github.com/BHoM/documentation/wiki/BHoM-Structural-Conventions.")]
         public double OrientationAngle { get; set; } = 0;
 
-        [Description("Contains the start and end release of the Bar. The releases defines how the bar is attached to its end nodes.")]
+        [Description("Defines the start and end release of the Bar. The releases defines how the bar is attached to its end nodes. If not set, full fixity will be assumed.")]
         public BarRelease Release { get; set; } = null;
 
-        [Description("Contains the start and end release of the Bar. The releases defines how the bar is attached to its end nodes.")]
         public BarFEAType FEAType { get; set; } = BarFEAType.Flexural;
 
-        [Description("Linear support for the bar. 3 translational degrees of freedom and one rotational. The rotational defines constraint around the axis of the bar.")]
+        [Description("Linear support for the bar. Three translational degrees of freedom and one rotational. The rotational DOF defines constraint about the axis of the bar.")]
         public Constraint4DOF Support { get; set; } = null;
 
         [Description("Offset of the bar as two vectors, one per end node, in bar local coordinates. Defines offsets from centreline to be applied in analysis packages.")]

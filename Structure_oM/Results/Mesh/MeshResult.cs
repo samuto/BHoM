@@ -30,25 +30,30 @@ using System;
 
 namespace BH.oM.Structure.Results
 {
+    [Description("Full collection of discrete results for a Panel/FEMesh for a specific Loadcase or LoadCombination.")]
     public class MeshResult : IResult, IResultCollection<MeshElementResult>, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Id of the mesh that this result collection belongs to. When extracted from an analysis package, the object id will match the format and value used in that particular package.")]
         public IComparable ObjectId { get; } = "";
 
-        public IComparable ResultCase { get; }
+        [Description("Identifier for the Loadcase or LoadCombination that the result belongs to. Is generally name or number of the loadcase, depending on the analysis package.")]
+        public IComparable ResultCase { get; } = "";
 
-        public double TimeStep { get; }
+        [Description("Time step for time history results.")]
+        public double TimeStep { get; } = 0.0;
 
-        public MeshResultLayer Layer { get; } 
+        public MeshResultLayer Layer { get; }
 
-        [Description("Position within the element thickness that result is extracted from, normalised to 1. 0 = lower surface, 0.5 = middle, 1 = top surface")]
+        [Description("Position within the element thickness that result is extracted from, normalised to 1. I.e. 0 = lower surface, 0.5 = middle, 1 = top surface.")]
         public double LayerPosition { get; }
 
         public MeshResultSmoothingType Smoothing { get; }
 
+        [Description("A collection of the discrete mesh element results per node and/or face.")]
         public ReadOnlyCollection<MeshElementResult> Results { get; }
 
         /***************************************************/

@@ -22,17 +22,22 @@
 
 using BH.oM.Geometry;
 using BH.oM.Structure.Elements;
+using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Loads
 {
+    [Description("Point displacement for Nodes. This can be used to apply translation as well as rotation.")]
     public class PointDisplacement : Load<Node>
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Length]
         public Vector Translation { get; set; } = new Vector();
 
+        [Angle]
         public Vector Rotation { get; set; } = new Vector();
 
         /***************************************************/

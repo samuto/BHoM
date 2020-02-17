@@ -20,26 +20,40 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System;
+using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Results
 {
+    [Description("Resulting displacements and rotations for a Node.")]
     public class NodeDisplacement : NodeResult
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Length]
+        [Description("Translational displacement in the X-direction as defined by orientation basis.")]
         public double UX { get; set; } = 0.0;
 
+        [Length]
+        [Description("Translational displacement in the Y-direction as defined by orientation basis.")]
         public double UY { get; set; } = 0.0;
 
+        [Length]
+        [Description("Translational displacement in the Z-direction as defined by orientation basis.")]
         public double UZ { get; set; } = 0.0;
 
+        [Angle]
+        [Description("Rotational displacement about the X-axis as defined by orientation basis.")]
         public double RX { get; set; } = 0.0;
 
+        [Angle]
+        [Description("Rotational displacement about the Y-axis as defined by orientation basis.")]
         public double RY { get; set; } = 0.0;
 
+        [Angle]
+        [Description("Rotational displacement about the Z-axis as defined by orientation basis.")]
         public double RZ { get; set; } = 0.0;
 
         /***************************************************/

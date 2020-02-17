@@ -21,25 +21,30 @@
  */
 
 using BH.oM.Structure.Elements;
+using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 using BH.oM.Geometry;
 
 namespace BH.oM.Structure.Loads
 {
-    /// <summary>
-    /// Point load along a bar
-    /// </summary>
-    public class BarPointLoad : Load<Bar>  //Bar point load object - different to nodal or point load as it needs a 'position' variable
+    [Description("Point load to be applied for Bars, positioned a set distance from the StartNode.")]
+    public class BarPointLoad : Load<Bar>
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Length]
+        [Description("Distance along the Bar between the StartNode and the load position.")]
         public double DistanceFromA { get; set; } = 0;
 
+        [Force]
+        [Description("Magnitude and direction of the Force. The load requires the Force and/or the Moment Vector to be non-zero to have any effect.")]
         public Vector Force { get; set; } = new Vector();
 
+        [Force]
+        [Description("Magnitude and direction of the Moment. The load requires the Force and/or the Moment Vector to be non-zero to have any effect.")]
         public Vector Moment { get; set; } = new Vector();
-
 
         /***************************************************/
     }

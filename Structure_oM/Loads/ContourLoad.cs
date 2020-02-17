@@ -22,23 +22,32 @@
 
 using BH.oM.Base;
 using BH.oM.Geometry;
+using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Loads
 {
+    [Description("Load to be applied over a region defined by a closed planar Polyline.")]
     public class ContourLoad : BHoMObject, ILoad
     {
         /***************************************************/
         /****            Public Properties              ****/
         /***************************************************/
 
-        public LoadAxis Axis { get; set; } = LoadAxis.Global;
+        [Description("The Loadcase in which the load is applied.")]
+        public Loadcase Loadcase { get; set; }
 
-        public Loadcase Loadcase { get; set; } = null;
+        [Description("Defines whether the load is applied in local or global coordinates.")]
+        public LoadAxis Axis { get; set; }
 
-        public bool Projected { get; set; } = false;
+        [Description("If true the load is projected to the region.")]
+        public bool Projected { get; set; }
 
+        [Pressure]
+        [Description("Force per area to be applied to the region.")]
         public Vector Force { get; set; } = new Vector();
 
+        [Description("Closed planar polyline enclosing the region to be loaded.")]
         public Polyline Contour { get; set; } = null;
 
         /***************************************************/

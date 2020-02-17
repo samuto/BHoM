@@ -20,30 +20,45 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.ComponentModel;
 using BH.oM.Base;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Constraints
 {
+    [Description("Constraint objects with four degrees of freedom, three translational and one rotational. Used for support or release of 1D analytical elements of 2D analytical objects. The Rotational DOF will correspond to rotation about the axis of the object.")]
     public class Constraint4DOF : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Defines the translational fixity in the X-direction.")]
         public DOFType TranslationX { get; set; } = DOFType.Free;
 
+        [Description("Defines the translational fixity in the Y-direction.")]
         public DOFType TranslationY { get; set; } = DOFType.Free;
 
+        [Description("Defines the translational fixity in the Z-direction.")]
         public DOFType TranslationZ { get; set; } = DOFType.Free;
 
+        [Description("Defines the rotational fixity about the axis of the element.")]
         public DOFType RotationX { get; set; } = DOFType.Free;
 
+        [ForcePerUnitLength]
+        [Description("Defines the stiffness in X-direction. This will only be active when corresponding degree of freedom has a DOFType with a stiffness dependency, such as Spring.")]
         public double TranslationalStiffnessX { get; set; } = 0;
 
+        [ForcePerUnitLength]
+        [Description("Defines the stiffness in Y-direction. This will only be active when corresponding degree of freedom has a DOFType with a stiffness dependency, such as Spring.")]
         public double TranslationalStiffnessY { get; set; } = 0;
 
+        [ForcePerUnitLength]
+        [Description("Defines the stiffness in Z-direction. This will only be active when corresponding degree of freedom has a DOFType with a stiffness dependency, such as Spring.")]
         public double TranslationalStiffnessZ { get; set; } = 0;
 
+        [MomentPerUnitAngle]
+        [Description("Defines the stiffness for rotation about the axis of the element. This will only be active when corresponding degree of freedom has a DOFType with a stiffness dependency, such as Spring.")]
         public double RotationalStiffnessX { get; set; } = 0;
 
 

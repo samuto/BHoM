@@ -20,43 +20,42 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.ComponentModel;
+
 namespace BH.oM.Structure.Constraints
 {
-
     /***************************************************/
 
-    /// <summary>
-    /// Enumerator of types of degrees of freedom
-    /// </summary>
+    [Description("Enumerator outlining the fixity of a particular degree of freedom. Controls if the DOF should be free, fixed or stiffness based.")]
     public enum DOFType
     {
-        /// <summary>Free - all DOF's released</summary>
+        [Description("Free to translate or rotate, depending on the DOF.")]
         Free = 0,
-        /// <summary>Fixed - all DOF's blocked</summary>
+        [Description("Fixed in translation or rotation, depending on the DOF.")]
         Fixed = 1,
-        /// <summary>Zero stiffness in the positive direction</summary>
+        [Description("Zero stiffness in the positive direction.")]
         FixedNegative = 2,
-        /// <summary>Zero stiffness in the negative direction</summary>
+        [Description("Zero stiffness in the negative direction.")]
         FixedPositive = 3,
-        /// <summary>Linear spring constant</summary>
+        [Description("Linear spring constant.")]
         Spring = 4,
-        /// <summary>Non-linear, zero stiffnss in positive direction</summary>
+        [Description("Nonlinear, zero stiffness in the positive direction.")]
         SpringNegative = 5,
-        /// <summary>Non-linear, zero stiffness in negative direction</summary>
+        [Description("Nonlinear, zero stiffness in the negative direction.")]
         SpringPositive = 6,
-        /// <summary>Spring stiffness between 0-1 relates to the element to which the DOF applies (e.g. bar end stiffness)</summary>
+        [Description("Spring stiffness between 0-1 relates to the element to which the DOF applies (e.g. bar end stiffness).")]
         SpringRelative = 7,
-        /// <summary>As spring negative, but relative stiffness</summary>
+        [Description("Nonlinear, Spring stiffness between 0-1 relates to the element to which the DOF applies (e.g. bar end stiffness), zero stiffness in the positive direction.")]
         SpringRelativeNegative = 8,
-        /// <summary>As spring positive but relative stiffness</summary>
+        [Description("Nonlinear, Spring stiffness between 0-1 relates to the element to which the DOF applies (e.g. bar end stiffness), zero stiffness in the negative direction.")]
         SpringRelativePositive = 9,
-        /// <summary>Non-linear spring model</summary>
+        [Description("Nonlinear spring model.")]
         NonLinear = 10,
-        /// <summary>Friction model (relative to the load applied)</summary>
+        [Description("Friction model (relative to the load applied).")]
         Friction = 11,
-        /// <summary>Damped velocities/accelerations</summary>
+        [Description("Damped velocities/accelerations.")]
         Damped = 12,
-        /// <summary>Gap model</summary>
+        [Description("Gap model.")]
         Gap = 13
     }
 

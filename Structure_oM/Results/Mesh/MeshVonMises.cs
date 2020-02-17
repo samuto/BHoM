@@ -24,25 +24,28 @@ using System;
 using System.ComponentModel;
 using BH.oM.Base;
 using BH.oM.Geometry;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Results
 {
+    [Description("von Mises stress, force and moment at a discrete location in the Panel/FEMesh.")]
     public class MeshVonMises: MeshElementResult, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Von Mises Stress, in N/m2")]
+        [Stress]
+        [Description("von Mises Stress.")]
         public double S { get; }
 
-        [Description("Von Mises normal/membrane forces, in N/m")]
+        [ForcePerUnitLength]
+        [Description("von Mises normal/membrane forces.")]
         public double N { get; }
 
-        [Description("Von Mises moments, in Nm/m")]
+        [MomentPerUnitLength]
+        [Description("von Mises moments.")]
         public double M { get; }
-
-        /***************************************************/
 
         /***************************************************/
         /**** Constructors                              ****/

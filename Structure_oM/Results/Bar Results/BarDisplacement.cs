@@ -22,26 +22,39 @@
 
 using System;
 using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Results
 {
-    [Description("Total displacement of the bar. All results given in Global coordinates")]
+    [Description("Resulting total displacements in global coordinates along the bar.")]
     public class BarDisplacement : BarResult
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Length]
+        [Description("Total displacement along the global X-axis.")]
         public double UX { get; set; } = 0.0;
 
+        [Length]
+        [Description("Total displacement along the global Y-axis.")]
         public double UY { get; set; } = 0.0;
 
+        [Length]
+        [Description("Total displacement along the global Z-axis.")]
         public double UZ { get; set; } = 0.0;
 
+        [Angle]
+        [Description("Total rotation about the global X-axis.")]
         public double RX { get; set; } = 0.0;
 
+        [Angle]
+        [Description("Total rotation about the global Y-axis.")]
         public double RY { get; set; } = 0.0;
 
+        [Angle]
+        [Description("Total rotation about the global Z-axis.")]
         public double RZ { get; set; } = 0.0;
 
         /***************************************************/

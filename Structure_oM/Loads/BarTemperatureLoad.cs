@@ -21,15 +21,20 @@
  */
 
 using BH.oM.Structure.Elements;
+using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Loads
 {
+    [Description("Uniform temperature load for Bars.")]
     public class BarTemperatureLoad : Load<Bar>
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Temperature]
+        [Description("Uniform temperature change of the Bar.")]
         public double TemperatureChange { get; set; } = 0;
 
         /***************************************************/

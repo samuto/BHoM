@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,20 +20,26 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-//using System.ComponentModel;
-//using System.Collections.Generic;
+using System;
 
-//namespace BH.oM.Structure.Results
-//{
-//    public class MeshStresses : MeshResult
-//    {
-//        /***************************************************/
-//        /**** Properties                                ****/
-//        /***************************************************/
+namespace BH.oM.Quantities.Attributes
+{
+    [AttributeUsage(AttributeTargets.Property)]
+    public class MomentPerUnitAngle : QuantityAttribute
+    {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
-//        public List<MeshNodeStress> MeshNodeStresses { get; set; } 
+        public override int M { get; } = 1;
 
-//        /***************************************************/
-//    }
-//}
+        public override int L { get; } = 2;
+
+        public override int T { get; } = -2;
+
+        public override string SIUnit { get; } = "N.m/rad";
+
+        /***************************************************/
+    }
+}
 
